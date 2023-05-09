@@ -9,9 +9,6 @@
 <body>
 <?php
 include "includes/header.php";
-
-
-
 ?>
 <div class="postdiv">
     <h1>Készítsd el az új bejegyzésed!</h1>

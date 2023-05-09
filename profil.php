@@ -81,8 +81,6 @@ include "includes/header.php";
         </tr>
     </table>
 </div>
-
-
 <?php
 include "includes/footer.php";
 mysqli_close($conn);

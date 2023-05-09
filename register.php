@@ -19,11 +19,14 @@ if ($age < 14) {
   $usern = $temparray[0];
   $joined = date("Y-m-d H:i:s");
   $admin = 0;
-  // Check if the email already exists in the database
-  $sql = "SELECT * FROM felhasznalok WHERE email = '$email'";
-  $result = mysqli_query($conn, $sql);
 
-  if (mysqli_num_rows($result) > 0) {
+  // Check if the email already exists in the database using a prepared statement
+  $stmt = $conn->prepare("SELECT * FROM felhasznalok WHERE email = ?");
+  $stmt->bind_param("s", $email);
+  $stmt->execute();
+  $result = $stmt->get_result();
+
+  if ($result->num_rows > 0) {
     // Email already exists, registration failed
     echo "A megadott email címmel már regisztráltak! Kérjük, használjon másik email címet. <a href='regisztracio.php'>Próbálkozás újra</a>";
   } else {
@@ -35,16 +38,16 @@ if ($age < 14) {
       // Hash the password
       $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-      // Insert the new user into the database
+      // Insert the new user into the database using a prepared statement
       $stmt = $conn->prepare("INSERT INTO felhasznalok (name, email, password, birthday, usern, admin, joined) VALUES (?, ?, ?, ?, ?, ?, ?)");
       $stmt->bind_param("sssssis", $name, $email, $hashed_password, $birthday, $usern, $admin, $joined);
       $stmt->execute();
 
-      if (mysqli_query($conn, $sql)) {
+      if ($stmt->affected_rows > 0) {
         echo "Sikeres regisztráció!";
         include_once "login.php";
       } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Error: " . $stmt->error;
       }
     }
   }

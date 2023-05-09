@@ -31,8 +31,6 @@
     <p>Már tag vagy? <a href="bejeletkezes.php">Jelentkezz be!</a></p>
     <p>Vissza a kezdőlapra: <a href="index.php">PedalBlog!</a></p>
 
-
-
 </div>
 </body>
 </html>

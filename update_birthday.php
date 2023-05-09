@@ -20,15 +20,18 @@ if (isset($_POST['birthday']) && isset($_POST['new_birthday'])){
         exit();
     }
 
-    $sql = "UPDATE felhasznalok SET birthday = '$newbirthday' WHERE birthday = '$birthday'";
+    $stmt = $conn->prepare("UPDATE felhasznalok SET birthday = ? WHERE birthday = ?");
+    $stmt->bind_param("ss", $newbirthday, $birthday);
 
-    if(mysqli_query($conn, $sql)){
+    if ($stmt->execute()){
         $_SESSION['birthday'] = $newbirthday; // update the birthday in the session
         header("Location: profil.php");
         exit();
     } else {
-        echo "Error updating record: " . mysqli_error($conn);
+        echo "Error updating record: " . $stmt->error;
     }
 }
-mysqli_close($conn);
+
+$stmt->close();
+$conn->close();
 ?>

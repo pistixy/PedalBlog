@@ -9,22 +9,13 @@
 
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="css/favicon.ico" type="image/x-icon">
-
-
 </head>
 
 <body>
-
 <?php
 include "includes/header.php"
 ?>
-
-
-
-
-
 <div class="posts-container">
-
     <?php
     include "includes/connect.php";
 
@@ -63,12 +54,7 @@ include "includes/header.php"
     include "visibleposts.php";
     ?>
 
-
-
-
 </div>
-
-
 
 <?php
       include "includes/footer.php"

@@ -5,16 +5,19 @@ include "includes/connect.php";
 if (isset($_POST['usern']) && isset($_POST['new_name'])){
     $usern = $_POST['usern'];
     $newname = $_POST['new_name'];
-    $sql = "UPDATE felhasznalok SET name = '$newname' WHERE usern = '$usern'";
 
-    if(mysqli_query($conn, $sql)){
+    $update_query = "UPDATE felhasznalok SET name = ? WHERE usern = ?";
+    $stmt = $conn->prepare($update_query);
+    $stmt->bind_param("ss", $newname, $usern);
+
+    if($stmt->execute()){
         $_SESSION['name'] = $newname; // update the name in the session
         header("Location: profil.php");
         exit();
     } else {
-        echo "Error updating record: " . mysqli_error($conn);
+        echo "Error updating record: " . $stmt->error;
     }
 }
-mysqli_close($conn);
+$stmt->close();
+$conn->close();
 ?>
-

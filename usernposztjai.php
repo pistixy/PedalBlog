@@ -9,7 +9,5 @@ if (mysqli_num_rows($result)    ==0){
     echo "Még nincsenek posztjaid! <a href='ujbejegyzes.php'>Létrehozás</a>";
 }
 include "visibleposts.php";
-
-
 include "includes/footer.php";
 ?>
