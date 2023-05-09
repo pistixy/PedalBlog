@@ -11,7 +11,7 @@ $totalPosts = $data['total'];
 if ($totalPosts > $limit) {
 // calculate the new limit for the button
     $newLimit = $limit + 3;
-    
+
 // check if there are less than 3 posts available to show
     if ($newLimit > $totalPosts) {
         $newLimit = $totalPosts;
