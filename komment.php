@@ -38,13 +38,13 @@ if (mysqli_num_rows($result_comments) > 0) {
         echo "</div>";
     }
 } else {
-    echo "<h3>Megjegyzések:</h3>";
+    echo "<h5>Megjegyzések:</h5>";
     echo "<p>Még nem fűztek hozzá megjegyzést.</p>";
 }
 
 echo "<form action='comment.php' method='post'>";
 if ($user_signed_in) {
-    echo "<textarea class='comment' id='comment' name='comment' placeholder='Megjegyzés hozzáfűzése mint $usern' required></textarea>";
+    echo "<textarea class='comment' id='comment' name='comment' placeholder='Megjegyzés hozzáfűzése mint " . $_SESSION['usern'] . "' required></textarea>";
 } else {
     echo "<textarea class='comment' id='comment' name='comment' placeholder='A megjegyzés hozzáfűzéséhez előbb be kell jelentkezz!' required></textarea>";
 }
@@ -52,4 +52,4 @@ echo "<input type='hidden' name='POSTID' value='$POSTID'>";
 echo "<input type='submit' value='Hozzáfűzés'>";
 echo "</form>";
 echo "</div>";
-
+?>

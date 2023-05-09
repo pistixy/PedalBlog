@@ -104,6 +104,10 @@ body {
 .navbar_items {
     font-size: 26px;
     padding-right: 10px;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+
 }
 
 /* Main content */
@@ -135,7 +139,7 @@ footer{
 }
 .footer_img{
     justify-content: space-between;
-    width: 500px;
+    width: 400px;
     margin-left: 100%;
 }
 .row{
@@ -205,13 +209,22 @@ footer{
 }
 
 .comment {
-    border: 3px black;
-    font-size: 20px;
-    width: 80%;
+
+
+    width: 95%;
+    margin-bottom: 10px;
+    position: relative; /* Add position: relative */
 }
-.comment-info{
-    font-size: 16px;
+
+.comment-info {
+    font-size: 10px;
+    /* Adjust the value to increase or decrease the font size */
 }
+
+.comment p {
+    margin-bottom: 5px; /* Add some spacing between comment text and comment info */
+}
+
 /* Style for the dropdown container */
 .dropdown {
     position: relative;
@@ -260,8 +273,10 @@ footer{
 }
 
 .delete-button-container {
-    display: inline-block;
-    margin-left: 10px;
+    position: absolute;
+    top: 0;
+    right: 0; /* Align to the right */
+    transform: translate(50%, -50%);
 }
 
 .delete-button {
@@ -277,5 +292,19 @@ footer{
     background-color: darkred;
 }
 
+.post {
+    position: relative;
+}
+
+.post-title {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.delete-button-containerpost {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
     </style>
 
