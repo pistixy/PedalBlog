@@ -4,6 +4,7 @@
     <title>PedalBlog Regisztráció</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="css/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <div id="login-form">

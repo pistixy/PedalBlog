@@ -1,7 +1,7 @@
 
 
 <link rel="stylesheet" href="css/styles.css">
-
+<link rel="icon" href="css/favicon.ico" type="image/x-icon">
 <?php
 include "connect.php";
 session_start();
