@@ -4,21 +4,12 @@
             <img src="css/logo.png">
         </a>
     </div>
-
-
     <?php
     include "searchposts.php"
     ?>
-
-
     <?php
     include "filterposts.php"
     ?>
-
-
-
-
-
     <div class="navbar_items">
         <?php
         if (isset($_SESSION['usern'])) {

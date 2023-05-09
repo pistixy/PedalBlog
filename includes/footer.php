@@ -19,7 +19,6 @@
                 </ul>
             </div>
         </div>
-
         <div class="row" >
             <img class="footer_img"   src="css/logo.png">
         </div>

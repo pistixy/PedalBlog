@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header('Location: index.php?error=notauthorized');
         exit();
     }
-
     $sql = "DELETE FROM kommentek WHERE KOMMENTID='$comment_id'";
     mysqli_query($conn, $sql);
     header('Location: ../index.php');

@@ -16,7 +16,6 @@ if (isset($_SESSION['usern'])) {
     $joined=$row['joined'];
 }
 ?>
-
 <?php
 include "navbar_items.php"
 ?>
